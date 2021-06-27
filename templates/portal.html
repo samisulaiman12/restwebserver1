@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+    <title>{% block title %}{% endblock %} سجل الطالب </title>
+    <link rel='stylesheet' href="{{ url_for('static', filename='css/style.css')}}">
+    {% endblock %}
+</head>
+<main>
+    <h1>النتائج الامتحانية الشهادة الثانوية العامة</h1>
+    <p> الاسم: {{student_firstname}}
+        <br>
+        اسم الأب: {{father}}
+        <br>
+        اسم الأم: {{mother}}
+        <br>
+        الكنية: {{student_lastname}}
+        <br>
+        رقم الاكتتاب: {{std_id}}
+        <br>
+        المحافظة: {{city}}
+        <br/>
+        تاريخ الميلاد: {{date_of_birth}}
+        <br/>
+    </p>
+    <figure>
+        <div>
+            <table>
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">الرياضيات</th>
+                        <th scope="col">الفيزياء</th>
+                        <th scope="col">علم الأحياء</th>
+                        <th scope="col">الكيمياء</th>
+                        <th scope="col">اللغة الانكليزية</th>
+                        <th scope="col">اللغة الفرنسية</th>
+                        <th scope="col">اللغة العربية</th>
+                        <th scope="col">المجموع العام</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>{{actual_marks['math']}}<br><strong>{{pass_fail['math']}}</strong><br></td>
+                    <td>{{actual_marks['physics']}}<br><strong>{{pass_fail['physics']}}</strong><br></td>
+                    <td>{{actual_marks['biology']}}<br><strong>{{pass_fail['biology']}}</strong><br></td>
+                    <td>{{actual_marks['chemistry']}}<br><strong>{{pass_fail['chemistry']}}</strong><br></td>
+                    <td>{{actual_marks['english']}}<br><strong>{{pass_fail['english']}}</strong><br></td>
+                    <td>{{actual_marks['french']}}<br><strong>{{pass_fail['french']}}</strong><br></td>
+                    <td>{{actual_marks['arabic']}}<br><strong>{{pass_fail['arabic']}}</strong><br></td>
+                    <td>{{pass_fail['total']}}<br><strong></strong>{{actual_marks['total']}}/2400<br></td>
+                </tr>
+            </table>
+        </div>
+
+    </figure>
+</main>
+
+</html>
